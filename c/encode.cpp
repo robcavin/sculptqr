@@ -758,7 +758,7 @@ unsigned char* encode(unsigned char qrCode[][QR_CODE_SIZE], char* message, bool 
             gdImageSetPixel(foo,j,i,qrCode[i][j] ? white : black);
         }
     }
-    FILE *pngFile = fopen("foo.png","w");
+    FILE *pngFile = fopen("/tmp/foo.png","w");
     gdImagePng(foo,pngFile);
 
     return &qrCode[0][0];

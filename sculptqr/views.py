@@ -57,9 +57,9 @@ def homepage(request, qr_code_id):
             qr_image_file_name = 'qr_code_'+ str(qr_code.id) +'.png'
             
             os.system('/server/sculptqr/project/c/encode "Hallo!" ' + settings.MEDIA_ROOT + qr_code.cropped_image.name)
-            shutil.move('/server/sculptqr/project/foo.png','/server/sculptqr/project/' + qr_image_file_name);
+            shutil.move('/tmp/foo.png','/tmp/' + qr_image_file_name);
 
-            image_data = PILImage.open('/server/sculptqr/project/' + qr_image_file_name,'r')
+            image_data = PILImage.open('/tmp/' + qr_image_file_name,'r')
             image_data = image_data.resize((400,400),PILImage.NEAREST)
             image_io = StringIO.StringIO()
             image_data.save(image_io,'png')
@@ -69,7 +69,7 @@ def homepage(request, qr_code_id):
                         
             qr_code.save()
 
-            os.remove('/server/sculptqr/project/' + qr_image_file_name)
+            os.remove('/tmp/' + qr_image_file_name)
 
             return render(request,'sculptqr/homepage.html',{'form':image_form, 'qr_code':qr_code})
     

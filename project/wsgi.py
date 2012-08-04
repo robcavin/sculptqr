@@ -14,6 +14,14 @@ framework.
 
 """
 import os
+import sys
+import site
+
+root = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..')
+sys.path.insert(0, root)
+
+packages = os.path.join(root, '../lib/python2.7/site-packages')
+site.addsitedir(packages)
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "project.settings")
 
