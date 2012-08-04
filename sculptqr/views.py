@@ -68,7 +68,7 @@ def homepage(request, qr_code_id):
 
             qr_image_file_name = 'qr_code_'+ str(qr_code.id) +'.png'
             
-            sculptqr_url = 'http://' + request.get_host() + '/c/' + qr_code.code
+            sculptqr_url = 'http://' + request.get_host() + '/c/' + qr_code.code + '/'
             os.system('/server/sculptqr/project/c/encode ' + sculptqr_url + ' ' + settings.MEDIA_ROOT + qr_code.cropped_image.name)
             shutil.move('/tmp/foo.png','/tmp/' + qr_image_file_name);
 
