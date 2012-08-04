@@ -14,6 +14,9 @@ class QRCode(models.Model) :
     qr_image_width = models.IntegerField(editable=False, null=True)
     qr_image_height = models.IntegerField(editable=False, null=True)
     
+    url = models.URLField(verify_exists=True)
+    code = models.CharField(max_length=10)
+    
     # removed for now since not used    
     #description = models.CharField(max_length=64,blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
