@@ -1,0 +1,6 @@
+{% extends 'sculptqr/base_sculptqr.html' %}
+{% load url from future %}
+
+{% block content %}
+<img src="{{ qr_code.qr_image.url }}" style="width:200px;height:200px;image-rendering:-webkit-optimize-contrast;">
+{% endblock %}

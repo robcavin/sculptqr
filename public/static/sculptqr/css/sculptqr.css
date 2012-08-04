@@ -1,0 +1,7 @@
+/* jcrop overrides */
+.jcrop-fix img {
+    max-width:none;
+}
+
+/* Bootstrap global overrides */
+.modal { height:auto; width:auto; max-height:700px; } /* XXX BUG - Modals have a fixed set of margins to center modal.  Allowing diff widths hoses this. */

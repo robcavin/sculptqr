@@ -1,0 +1,21 @@
+{% extends 'sculptqr/base_sculptqr.html' %}
+{% load url from future %}
+
+{% block content %}
+<div class="hero-unit">
+    <h2 style="font-size:36px; padding-bottom:40px">Create your own eye-catching QR Codes!</h2>
+<div class="row">
+<div class="span4">
+<form action="/{% if qr_code %}{{ qr_code.id }}/{% endif %}" method="post" enctype="multipart/form-data" >
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input class="btn btn-primary" type="submit" value="Submit" />
+</form>
+</div>
+
+<div class=span4">
+<img src="{{ qr_code.qr_image.url }}" style="width:200px;height:200px;image-rendering:-webkit-optimize-contrast;">
+</div>
+</div>
+</div>
+{% endblock %}
