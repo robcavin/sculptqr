@@ -14,7 +14,10 @@
 </div>
 
 <div class=span4">
-<img src="{{ qr_code.qr_image.url }}" style="width:200px;height:200px;image-rendering:-webkit-optimize-contrast;">
+    {% if qr_code %}
+        <img src="{{ qr_code.qr_image.url }}" style="width:200px;height:200px">
+        <a href="{{ qr_code.qr_image.url }}" target="_blank">Download</a>
+    {% endif %}
 </div>
 </div>
 
